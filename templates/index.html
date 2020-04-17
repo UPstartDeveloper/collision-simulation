@@ -3,26 +3,26 @@
 
 {% block content %}
     <h1>Captain Rainbow's Momentum Simulator</h1>
-
+    <!-- Help Text -->
     <h3>Enter the mass of both objects, their initial velocities, and
         the type of collision - and see the results!
     </h3>
-
+    <!-- User Form for Parameters -->
     <form action="/" method="POST">
         <div class="form-group">
-            <label for="mass1">Enter mass of object 1</label>
+            <label for="mass1">Enter mass of object 1 (in kilograms)</label>
             <input type="text" class="form-control" name="mass1" id="Mass1" aria-describedby="mass1">
         </div>
         <div class="form-group">
-            <label for="velocity1">Enter initial velocity of object 1</label>
+            <label for="velocity1">Enter initial velocity of object 1 (in meters per second)</label>
             <input type="text" class="form-control" name="velocity1" id="Velocity1" aria-describedby="v1">
         </div>
         <div class="form-group">
-            <label for="mass2">Enter mass of object 2</label>
+            <label for="mass2">Enter mass of object 2 (in kilograms)</label>
             <input type="text" class="form-control" name="mass2" id="Mass2" aria-describedby="mass2">
         </div>
         <div class="form-group">
-            <label for="velocity1">Enter initial velocity of object 2</label>
+            <label for="velocity1">Enter initial velocity of object 2 (in meters per second)</label>
             <input type="text" class="form-control" name="velocity2" id="Velocity2" aria-describedby="v1">
         </div>
         <div class="form-group">
@@ -38,5 +38,6 @@
         </div>
 
     </form>
-
+    <!-- Results Section-->
+    {{ results }}
 {% endblock %}
