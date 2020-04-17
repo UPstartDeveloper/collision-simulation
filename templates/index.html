@@ -1,0 +1,42 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Captain Rainbow's Momentum Simulator</h1>
+
+    <h3>Enter the mass of both objects, their initial velocities, and
+        the type of collision - and see the results!
+    </h3>
+
+    <form action="/" method="POST">
+        <div class="form-group">
+            <label for="mass1">Enter mass of object 1</label>
+            <input type="text" class="form-control" name="mass1" id="Mass1" aria-describedby="mass1">
+        </div>
+        <div class="form-group">
+            <label for="velocity1">Enter initial velocity of object 1</label>
+            <input type="text" class="form-control" name="velocity1" id="Velocity1" aria-describedby="v1">
+        </div>
+        <div class="form-group">
+            <label for="mass2">Enter mass of object 2</label>
+            <input type="text" class="form-control" name="mass2" id="Mass2" aria-describedby="mass2">
+        </div>
+        <div class="form-group">
+            <label for="velocity1">Enter initial velocity of object 2</label>
+            <input type="text" class="form-control" name="velocity2" id="Velocity2" aria-describedby="v1">
+        </div>
+        <div class="form-group">
+            <label for="collisionType">Elastic Collision</label>
+            <input type="radio" id="collision-type" name="type" value="Elastic Collision">
+        </div>
+        <div class="form-group">
+            <label for="collisionType">Perfectly Inelastic Collision</label>
+            <input type="radio" id="collision-type" name="type" value="Perfectly Inelastic Collision">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+
+    </form>
+
+{% endblock %}

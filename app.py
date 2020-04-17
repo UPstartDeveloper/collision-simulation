@@ -20,10 +20,7 @@ def calculation(m1, m2, init_v1, init_v2, elastic=False):
 @app.route('/', methods=['GET', 'POST'])
 def simulation():
     '''Display a form to input values, and displays result of calculation.'''
-    return 'Hello World!'
-
-    # templates
-    #
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
