@@ -3,7 +3,6 @@ from flask import Flask, render_template, redirect, url_for, request
 import os
 import math
 import numpy as np
-import cmath
 
 
 app = Flask(__name__)
@@ -34,8 +33,8 @@ def calculate_final_v2(total_momentum_initial, m1, m2,
     d_part3 = ((8 * math.pow(m2, 2) * total_kinetic_initial) / m1)
     d = d_part1 + d_part2 + d_part3
     a = m2 + (math.pow(m2, 2) / m1)
-    sol1 = (b+cmath.sqrt(d))/(2*a)
-    sol2 = (b-cmath.sqrt(d))/(2*a)
+    sol1 = round((b+math.sqrt(d))/(2*a), 4)
+    sol2 = round((b-math.sqrt(d))/(2*a), 4)
     # return the value NOT equal to init_v2
     if sol1 == init_v2:
         return sol2
