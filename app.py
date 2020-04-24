@@ -46,7 +46,7 @@ def calculate_final_v1(total_momentum_initial, m1, m2, v2):
     """Credit to Professor Koh of Dominican Univeristy of California for the
        algorithm used in this function!
     """
-    return ((total_momentum_initial - (m2 * v2)) / m1, 2)
+    return (total_momentum_initial - (m2 * v2)) / m1
 
 
 def calculation(m1, m2, init_v1, init_v2, elastic):
