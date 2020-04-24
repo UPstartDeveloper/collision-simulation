@@ -30,8 +30,8 @@ def calculate_final_v2(total_momentum_initial, m1, m2,
     """
     b = (2 * total_momentum_initial * m2) / m1
     d_part1 = ((-4 * math.pow(total_momentum_initial, 2) * m2) / m1)
-    d_part2 = 4 * m2 * total_kinetic_initial
-    d_part3 = ((4 * math.pow(m2, 2) * total_kinetic_initial) / m1)
+    d_part2 = 8 * m2 * total_kinetic_initial
+    d_part3 = ((8 * math.pow(m2, 2) * total_kinetic_initial) / m1)
     d = d_part1 + d_part2 + d_part3
     a = m2 + (math.pow(m2, 2) / m1)
     sol1 = (b+cmath.sqrt(d))/(2*a)
@@ -83,14 +83,17 @@ def calculation(m1, m2, init_v1, init_v2, elastic):
 @app.route('/', methods=['GET', 'POST'])
 def simulation():
     '''Display a form to input values, and displays result of calculation.'''
-    m1 = float(request.form.get('mass1'))
-    m2 = float(request.form.get('mass2'))
-    init_v1 = float(request.form.get('velocity1'))
-    init_v2 = float(request.form.get('velocity2'))
+    m1 = request.form.get('mass1')
+    m2 = request.form.get('mass2')
+    init_v1 = request.form.get('velocity1')
+    init_v2 = request.form.get('velocity2')
     elastic = request.form.get('type')
     # calculate the results
-    results = calculation(m1, m2, init_v1, init_v2, elastic)
-    print(f'Results: {results}')
+    if m1 is not None:
+        results = calculation(float(m1), float(m2), float(init_v1),
+                              float(init_v2), elastic)
+    else:
+        results = ''
     return render_template('index.html', results=results)
     # after form submission
     if request.method == 'POST':
